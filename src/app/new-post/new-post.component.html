@@ -1,0 +1,20 @@
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center" class="top-div">
+  <div fxFlex="30%" fxFlexOffset="35%" style="text-align: center; font-size: 1.6em">
+افزودن پست جدید
+  </div>
+</div>
+<form (ngSubmit)="submit()" [formGroup]="postForm">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center">
+    <div fxFlex="40%" fxFlexOffset="30%" class="back-color">
+      <mat-form-field class="full-width" style="text-align: center" [floatLabel]="'never'">
+        <textarea matInput placeholder="متن پست" formControlName="post"></textarea>
+        <mat-error *ngIf="postForm.controls['post'].hasError('required')">نوشتن متن الزامیست</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center">
+    <div fxFlex="40%" fxFlexOffset="30%" class="back-color">
+      <button type="submit" mat-button [disabled]="!postForm.valid">ثبت اطلاعات</button>
+    </div>
+  </div>
+</form>

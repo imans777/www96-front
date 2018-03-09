@@ -15,13 +15,17 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {HttpService} from "./services/http.service";
 import { ProfileComponent } from './profile/profile.component';
+import { NewPostComponent } from './new-post/new-post.component';
+import { ShowPostComponent } from './show-post/show-post.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterPageComponent,
-    ProfileComponent
+    ProfileComponent,
+    NewPostComponent,
+    ShowPostComponent
   ],
   imports: [
     routing,

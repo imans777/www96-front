@@ -1,0 +1,24 @@
+.back-color {
+  background-color: #9ce1ff;
+  padding: 20px 50px;
+}
+
+/*.full-width {*/
+  /*max-width: 100%;*/
+  /*width: 100%;*/
+/*}*/
+
+/*.top-div {*/
+  /*margin-top: 50px;*/
+  /*margin-bottom: 20px;*/
+  /*font-weight: bold;*/
+/*}*/
+
+.main-post-text {
+  direction: rtl;
+  text-align: right;
+}
+
+.pointer {
+  cursor: pointer;
+}

@@ -153,10 +153,4 @@ export class RegisterPageComponent implements OnInit {
       return null;
     return error;
   }
-
-  getErrorMessage() {
-    return this.register.hasError('required') ? 'You must enter a value' :
-      this.register.hasError('email') ? 'Not a valid email' :
-        '';
-  }
 }

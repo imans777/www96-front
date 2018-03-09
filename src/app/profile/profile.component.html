@@ -8,22 +8,22 @@
     <mat-card>
       <mat-card-header>
         <div mat-card-avatar class="header-image">
-          <img src="{{profile.avatar}}" alt="">
+          <img src="{{profile?.avatar}}" alt="">
         </div>
         <div class="right-texts">
-          <mat-card-title class="texts">@{{profile.username}}</mat-card-title>
-          <mat-card-subtitle class="texts">{{profile.email}}</mat-card-subtitle>
-          <mat-card-subtitle class="texts">{{profile.field}}</mat-card-subtitle>
+          <mat-card-title class="texts">@{{profile?.username}}</mat-card-title>
+          <mat-card-subtitle class="texts">{{profile?.email}}</mat-card-subtitle>
+          <mat-card-subtitle class="texts">{{profile?.field}}</mat-card-subtitle>
         </div>
       </mat-card-header>
     </mat-card>
     <mat-card *ngFor="let post of profile?.posts">
       <mat-card-header>
         <div mat-card-avatar class="sub-image">
-          <img src="{{profile.avatar}}" alt="">
+          <img src="{{profile?.avatar}}" alt="">
         </div>
         <div class="sub-right-texts">
-          <mat-card-title class="sub-texts">@{{profile.username}}</mat-card-title>
+          <mat-card-title class="sub-texts">@{{profile?.username}}</mat-card-title>
         </div>
       </mat-card-header>
       <mat-card-content>
