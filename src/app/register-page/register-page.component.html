@@ -1,3 +1,69 @@
-<p>
-  register-page works!
-</p>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center" class="top-div">
+  <div fxFlex="30%" fxFlexOffset="35%" style="text-align: center; font-size: 1.6em">
+    به صفحه ثبت نام خوش آمدید
+  </div>
+</div>
+<form (ngSubmit)="submit()" [formGroup]="register">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center">
+    <div fxFlex="40%" fxFlexOffset="30%" class="back-color">
+      <mat-form-field class="full-width" style="text-align: center" [floatLabel]="'never'">
+        <input matInput placeholder="نام کاربری" formControlName="username">
+        <mat-error *ngIf="register.controls['username'].hasError('required')">نام کاربری الزامیست</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center">
+    <div fxFlex="40%" fxFlexOffset="30%" class="back-color">
+      <mat-form-field class="full-width" style="text-align: center" [floatLabel]="'never'">
+        <input matInput placeholder="ایمیل" formControlName="email">
+        <mat-error
+          *ngIf="register.controls['email'].hasError('email') || register.controls['email'].hasError('notUTAC')">ایمیل
+          معتبر نیست
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center">
+    <div fxFlex="40%" fxFlexOffset="30%" class="back-color">
+      <mat-form-field class="full-width" style="text-align: center" [floatLabel]="'never'">
+        <input type="password" matInput placeholder="رمز عبور" formControlName="password">
+        <mat-error *ngIf="register.controls['password'].hasError('error')">گذر واژه باید حداقل 8 کاراکتر و شامل یک
+          کاراکتر ویژه، یک عدد و یک حرف باشد
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center">
+    <div fxFlex="40%" fxFlexOffset="30%" class="back-color">
+      <mat-form-field class="full-width" style="text-align: center" [floatLabel]="'never'">
+        <input type="password" matInput placeholder="تکرار رمز عبور" formControlName="password_confirm">
+        <mat-error *ngIf="register.controls['password_confirm'].hasError('confirm')">رمز وارد شده با رمز اولیه تطابق
+          ندارد
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center">
+    <div fxFlex="40%" fxFlexOffset="30%" class="back-color">
+      <mat-form-field class="full-width" style="text-align: center" [floatLabel]="'never'">
+        <input type="number" matInput placeholder="شماره دانشجویی" formControlName="student_id">
+        <mat-error *ngIf="register.controls['student_id'].hasError('std')">شماره دانشجویی باید یک عدد 9 رقمی باشد
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center">
+    <div fxFlex="40%" fxFlexOffset="30%" class="back-color">
+      <mat-form-field class="full-width" style="text-align: center" [floatLabel]="'never'">
+        <mat-select formControlName="fields">
+          <mat-option *ngFor="let field of fields" value="{{field}}">{{field}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center">
+    <div fxFlex="40%" fxFlexOffset="30%" class="back-color">
+      <button type="submit" mat-button [disabled]="!register.valid">ثبت اطلاعات</button>
+    </div>
+  </div>
+</form>

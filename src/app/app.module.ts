@@ -4,6 +4,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import {routing} from "./app.routing";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule} from "@angular/material";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {HttpService} from "./services/http.service";
 
 
 @NgModule({
@@ -12,9 +19,19 @@ import { RegisterPageComponent } from './register-page/register-page.component';
     RegisterPageComponent
   ],
   imports: [
-    BrowserModule
+    routing,
+    BrowserAnimationsModule,
+    BrowserModule,
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatButtonModule,
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
