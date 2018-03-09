@@ -20,6 +20,7 @@
         <button mat-button (click)="addLikes(true)">{{post?.likes}} Likes</button>
         <button mat-button (click)="addLikes(false)">{{post?.dislikes}} Dislikes</button>
         <button mat-button>{{post?.comments}} Comments</button>
+        <button mat-button (click)="report()">Report</button>
       </mat-card-actions>
     </mat-card>
   </div>

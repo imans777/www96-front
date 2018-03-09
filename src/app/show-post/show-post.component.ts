@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpService} from "../services/http.service";
+import {MatSnackBar} from "@angular/material";
 
 @Component({
   selector: 'app-show-post',
@@ -18,7 +19,8 @@ export class ShowPostComponent implements OnInit {
   username;
 
   constructor(private route: ActivatedRoute, private httpService: HttpService,
-              private router: Router) { }
+              private router: Router, private snackBar: MatSnackBar) {
+  }
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -28,7 +30,7 @@ export class ShowPostComponent implements OnInit {
           data => {
             data = data[0];
             console.log(data);
-            if(data['posts'] && data['posts'].length > 0)
+            if (data['posts'] && data['posts'].length > 0)
               this.post = data.posts[0];
             else {
               this.post = {
@@ -40,7 +42,7 @@ export class ShowPostComponent implements OnInit {
               this.username = "iman";
             }
           }, data => {
-            if(data['posts'] && data['posts'].length > 0)
+            if (data['posts'] && data['posts'].length > 0)
               this.post = data.posts[0];
             else {
               this.post = {
@@ -50,15 +52,15 @@ export class ShowPostComponent implements OnInit {
                 comments: 5
               }
               this.username = "iman";
-            // this.post = {
-            //   text: "این متن دلخواه برای این نوشته است.",
-            //   likes: 2,
-            //   dislikes: 3,
-            //   comments: 5
-            // }
-            // this.username = "iman";
+              // this.post = {
+              //   text: "این متن دلخواه برای این نوشته است.",
+              //   likes: 2,
+              //   dislikes: 3,
+              //   comments: 5
+              // }
+              // this.username = "iman";
             }
-        });
+          });
       }
     );
   }
@@ -77,38 +79,54 @@ export class ShowPostComponent implements OnInit {
         console.log("here");
         this.increment(likes);
       }, err => {
-        if(err.status == 200) {
-          console.log("there");
-          this.increment(likes);
-        }
-        else {
-          console.log("dec");
-          this.decrement(likes);
-        }
+        // if(err.status == 200) {
+        //   console.log("there");
+        //   this.increment(likes);
+        // }
+        // else {
+        //   console.log("dec");
+        //   this.decrement(likes);
+        // }
+        this.httpService.get(`profile/${this.username}`).subscribe(
+          data => {
+            data = data[0];
+            console.log(data);
+            if (data['posts'] && data['posts'].length > 0)
+              this.post = data.posts[0];
+          });
       }
     );
   }
 
   increment(likes = true) {
-    if(likes) {
-      this.post['likes'] ++;
+    if (likes) {
+      this.post['likes']++;
     }
     else {
-      this.post['dislikes'] ++;
+      this.post['dislikes']++;
     }
   }
 
   decrement(likes = true) {
-    if(likes) {
-      this.post['likes'] --;
+    if (likes) {
+      this.post['likes']--;
     }
     else {
-      this.post['dislikes'] --;
+      this.post['dislikes']--;
     }
   }
 
-  addDislikes() {
-
+  report() {
+    let data = {
+      id: this.post['id']
+    };
+    this.httpService.post(`report`, data).subscribe(
+      data => {
+        console.log("here");
+      }, err => {
+        this.snackBar.open('پست با موفقیت گزارش شد.', null, {duration: 2000});
+      }
+    );
   }
 
 }
