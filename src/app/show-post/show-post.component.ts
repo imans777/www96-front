@@ -19,10 +19,10 @@ export class ShowPostComponent implements OnInit {
     this.route.params.subscribe(
       params => {
         this.username = params['username'] ? params['username'] : null;
-        this.httpService.get(`show_post/${this.username}`).subscribe(
+        this.httpService.get(`profile/${this.username}`).subscribe(
           data => {
             console.log(data);
-            this.post = data;
+            this.post = data.posts[0];
           }, err => {
             this.post = {
               text: "این متن دلخواه برای این نوشته است.",

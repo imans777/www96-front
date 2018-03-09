@@ -22,9 +22,11 @@ export class ProfileComponent implements OnInit {
         this.httpService.get(`profile/${this.username}`).subscribe(
           data => {
             console.log(data);
-            data['posts'].forEach((e, i) => {
-              data['posts'][i]['text'] = data['posts'][i]['text'].substring(0, 30) + (data['posts'][i]['text'].length >= 30? '...': '');
-            })
+            if(data['posts']) {
+              data['posts'].forEach((e, i) => {
+                data['posts'][i]['text'] = data['posts'][i]['text'].substring(0, 30) + (data['posts'][i]['text'].length >= 30 ? '...' : '');
+              });
+            }
             this.profile = data;
           }, err => {
             let posts = [
