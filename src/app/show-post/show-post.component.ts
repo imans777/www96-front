@@ -9,7 +9,12 @@ import {HttpService} from "../services/http.service";
 })
 export class ShowPostComponent implements OnInit {
 
-  post;
+  post = {
+    text: '',
+    likes: 0,
+    dislikes: 0,
+    comments: 0
+  };
   username;
 
   constructor(private route: ActivatedRoute, private httpService: HttpService,
@@ -18,21 +23,42 @@ export class ShowPostComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       params => {
-        this.username = params['username'] ? params['username'] : null;
+        this.username = params['username'] ? params['username'] : 'iman';
         this.httpService.get(`profile/${this.username}`).subscribe(
           data => {
+            data = data[0];
             console.log(data);
-            this.post = data.posts[0];
-          }, err => {
-            this.post = {
-              text: "این متن دلخواه برای این نوشته است.",
-              likes: 2,
-              dislikes: 3,
-              comments: 5
+            if(data['posts'] && data['posts'].length > 0)
+              this.post = data.posts[0];
+            else {
+              this.post = {
+                text: "این متن دلخواه برای این نوشته است.",
+                likes: 2,
+                dislikes: 3,
+                comments: 5
+              }
+              this.username = "iman";
             }
-            this.username = "iman";
-          }
-        );
+          }, data => {
+            if(data['posts'] && data['posts'].length > 0)
+              this.post = data.posts[0];
+            else {
+              this.post = {
+                text: "این متن دلخواه برای این نوشته است.",
+                likes: 2,
+                dislikes: 3,
+                comments: 5
+              }
+              this.username = "iman";
+            // this.post = {
+            //   text: "این متن دلخواه برای این نوشته است.",
+            //   likes: 2,
+            //   dislikes: 3,
+            //   comments: 5
+            // }
+            // this.username = "iman";
+            }
+        });
       }
     );
   }
