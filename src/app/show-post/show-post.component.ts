@@ -74,6 +74,7 @@ export class ShowPostComponent implements OnInit {
       id: this.post['id'],
       like: likes
     };
+    console.log("lik", data);
     this.httpService.post(`like`, data).subscribe(
       data => {
         console.log("here");
@@ -118,8 +119,9 @@ export class ShowPostComponent implements OnInit {
 
   report() {
     let data = {
-      id: this.post['id']
+      idid: this.post['id']
     };
+    console.log("dara:", data);
     this.httpService.post(`report`, data).subscribe(
       data => {
         console.log("here");
