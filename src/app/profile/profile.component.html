@@ -8,7 +8,7 @@
     <mat-card>
       <mat-card-header>
         <div mat-card-avatar class="header-image">
-          <img src="{{profile?.avatar}}" alt="">
+          <img src="{{tempImageUrl}}" alt="">
         </div>
         <div class="right-texts">
           <mat-card-title class="texts">@{{profile?.username}}</mat-card-title>
@@ -20,7 +20,7 @@
     <mat-card *ngFor="let post of profile?.posts">
       <mat-card-header>
         <div mat-card-avatar class="sub-image">
-          <img src="{{profile?.avatar}}" alt="">
+          <img src="{{tempImageUrl}}" alt="">
         </div>
         <div class="sub-right-texts">
           <mat-card-title class="sub-texts">@{{profile?.username}}</mat-card-title>

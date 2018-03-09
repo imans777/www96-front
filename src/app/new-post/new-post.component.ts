@@ -28,7 +28,7 @@ export class NewPostComponent implements OnInit {
 
   submit() {
     let data = {
-      post: this.postForm.controls['post'].value
+      text: this.postForm.controls['post'].value
     };
     this.httpService.post('new_post', data).subscribe(
       data => {
