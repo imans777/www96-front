@@ -70,7 +70,9 @@ export class RegisterPageComponent implements OnInit {
     console.log("data", data);
     this.httpService.post('register', data).subscribe(
       data => {
-
+      	console.log("Da:ta", data);
+      }, err => {
+      	console.log("e:r", err);
       }
     );
   }

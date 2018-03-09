@@ -13,7 +13,7 @@ export class HttpService {
   }
 
   get(url): Observable<any> {
-    return this.http.get(this.tempServer + url, {observe: 'response'}).map(data => data.body);
+    return this.http.get(this.serverAddress + url, {observe: 'response'}).map(data => data.body);
   }
 
   put(url, values): Observable<any> {
