@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, Validators} from "@angular/forms";
 import {HttpService} from "../services/http.service";
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-register-page',
@@ -12,11 +13,12 @@ export class RegisterPageComponent implements OnInit {
   register;
   fields;
 
-  constructor(private httpService: HttpService) {
+  constructor(private httpService: HttpService, private snackBar: MatSnackBar) {
   }
 
 
   ngOnInit() {
+  	this.snackBar.open("صفحه بارگذاری شد", null, {duration: 2000});
     this.loadFields();
     this.initForm();
   }
@@ -24,6 +26,7 @@ export class RegisterPageComponent implements OnInit {
   loadFields() {
     this.httpService.get('fields').subscribe(
       data => {
+      	// console.log("feilds received", data);
         this.fields = data.fields;
       }, err => {
         console.log("error occurred loading from server");
@@ -73,6 +76,12 @@ export class RegisterPageComponent implements OnInit {
       	console.log("Da:ta", data);
       }, err => {
       	console.log("e:r", err);
+      	if(err.status == 200) {
+      		this.snackBar.open("با موفقیت ثبت نام شدید", null, {duration: 2000});
+      	}
+      	else {
+      		this.snackBar.open("اطلاعات نامعتبر است", null, {duration: 2000});
+      	}
       }
     );
   }

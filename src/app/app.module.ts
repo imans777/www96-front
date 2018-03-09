@@ -7,7 +7,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import {routing} from "./app.routing";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule} from "@angular/material";
+import {MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSnackBarModule} from "@angular/material";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {HttpService} from "./services/http.service";
@@ -29,6 +29,7 @@ import {HttpService} from "./services/http.service";
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatSnackBarModule,
     MatButtonModule,
   ],
   providers: [HttpService],
