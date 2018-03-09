@@ -56,9 +56,6 @@ export class RegisterPageComponent implements OnInit {
           Validators.required
         ]]
       },
-      // {
-      //   validator: this.basicInfoValidation
-      // }
     );
   }
 
@@ -73,9 +70,9 @@ export class RegisterPageComponent implements OnInit {
     console.log("data", data);
     this.httpService.post('register', data).subscribe(
       data => {
-      	console.log("Da:ta", data);
+      	// console.log("Da:ta", data);
       }, err => {
-      	console.log("e:r", err);
+      	// console.log("e:r", err);
       	if(err.status == 200) {
       		this.snackBar.open("با موفقیت ثبت نام شدید", null, {duration: 2000});
       	}

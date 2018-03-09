@@ -7,16 +7,21 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import {routing} from "./app.routing";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSnackBarModule} from "@angular/material";
+import {
+  MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSelectModule,
+  MatSnackBarModule
+} from "@angular/material";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {HttpService} from "./services/http.service";
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    ProfileComponent
   ],
   imports: [
     routing,
@@ -27,6 +32,7 @@ import {HttpService} from "./services/http.service";
     ReactiveFormsModule,
     HttpClientModule,
     MatInputModule,
+    MatCardModule,
     MatFormFieldModule,
     MatSelectModule,
     MatSnackBarModule,

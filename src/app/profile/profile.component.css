@@ -1,0 +1,99 @@
+.card-view {
+  margin: 10px;
+  box-shadow: 10px 10px 80px grey;
+  border: 1px solid gray;
+}
+
+.profile-item {
+  text-align: center;
+}
+
+.profile-picture {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 3px;
+  border-radius: 100%;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  margin: 20px 0 25px 0;
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+}
+
+.profile-picture img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.profile-name {
+  /*padding-top: 20px;*/
+  font-size: 2em !important;
+  font-weight: bold !important;
+  /*text-transform: capitalize;*/
+  /*margin-bottom: 40px;*/
+}
+
+
+mat-card {
+  margin: 10px 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.header-image {
+  /*background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');*/
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  margin: 10px 20px 5px 20%;
+}
+
+.header-image img {
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+}
+
+.sub-image {
+  width: 50px;
+  height: 50px;
+  -webkit-background-size: cover;
+  background-size: cover;
+  margin: 10px 20px 10px 10px;
+}
+
+.sub-image img {
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+}
+
+.right-texts {
+  margin: 20px;
+}
+
+.sub-right-texts {
+  margin: 30px 20px 5px -20px;
+}
+
+.texts {
+  font-size: 1em;
+}
+
+.sub-texts {
+  font-size: 0.8em;
+}
+
+
+.main-post-text {
+  font-size: 1.2em;
+  direction: rtl;
+  text-align: right;
+  padding: 5px;
+}
