@@ -67,4 +67,48 @@ export class ShowPostComponent implements OnInit {
     this.router.navigate([`profile/${this.username}`]);
   }
 
+  addLikes(likes = true) {
+    let data = {
+      id: this.post['id'],
+      like: likes
+    };
+    this.httpService.post(`like`, data).subscribe(
+      data => {
+        console.log("here");
+        this.increment(likes);
+      }, err => {
+        if(err.status == 200) {
+          console.log("there");
+          this.increment(likes);
+        }
+        else {
+          console.log("dec");
+          this.decrement(likes);
+        }
+      }
+    );
+  }
+
+  increment(likes = true) {
+    if(likes) {
+      this.post['likes'] ++;
+    }
+    else {
+      this.post['dislikes'] ++;
+    }
+  }
+
+  decrement(likes = true) {
+    if(likes) {
+      this.post['likes'] --;
+    }
+    else {
+      this.post['dislikes'] --;
+    }
+  }
+
+  addDislikes() {
+
+  }
+
 }

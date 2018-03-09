@@ -1,0 +1,30 @@
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center" class="top-div">
+  <div fxFlex="30%" fxFlexOffset="35%" style="text-align: center; font-size: 1.6em">
+به صفحه ورود خوش آمدید
+  </div>
+</div>
+<form (ngSubmit)="submit()" [formGroup]="login">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center">
+    <div fxFlex="40%" fxFlexOffset="30%" class="back-color">
+      <mat-form-field class="full-width" style="text-align: center" [floatLabel]="'never'">
+        <input matInput placeholder="نام کاربری" formControlName="username">
+        <mat-error *ngIf="login.controls['username'].hasError('required')">نام کاربری الزامیست</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center">
+    <div fxFlex="40%" fxFlexOffset="30%" class="back-color">
+      <mat-form-field class="full-width" style="text-align: center" [floatLabel]="'never'">
+        <input type="password" matInput placeholder="رمز عبور" formControlName="password">
+        <mat-error *ngIf="login.controls['password'].hasError('error')">گذر واژه باید حداقل 8 کاراکتر و شامل یک
+          کاراکتر ویژه، یک عدد و یک حرف باشد
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center">
+    <div fxFlex="40%" fxFlexOffset="30%" class="back-color">
+      <button type="submit" mat-button [disabled]="!login.valid">ورود</button>
+    </div>
+  </div>
+</form>
