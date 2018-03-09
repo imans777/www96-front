@@ -17,6 +17,7 @@ import {HttpService} from "./services/http.service";
 import { ProfileComponent } from './profile/profile.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { ShowPostComponent } from './show-post/show-post.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ShowPostComponent } from './show-post/show-post.component';
     RegisterPageComponent,
     ProfileComponent,
     NewPostComponent,
-    ShowPostComponent
+    ShowPostComponent,
+    LoginComponent
   ],
   imports: [
     routing,
